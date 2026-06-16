@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import HeroSection from "@/components/core/Hero-Section";
+import AboutSection from "@/components/core/About-Section";
+import SkillsSection from "@/components/core/Skills-Section";
 import { Sun, X, MessageSquare, Send } from "lucide-react";
 
 export default function Home() {
@@ -86,6 +88,8 @@ export default function Home() {
       {/* ── MAIN CONTENT ─────────────────────────────────────────────────── */}
       <main className="relative z-10 flex flex-1 flex-col">
         <HeroSection />
+        <AboutSection />
+        <SkillsSection />
       </main>
 
       {/* ── FLOATING STICKY AI ASSISTANT OVERLAY ─────────────────────────── */}
