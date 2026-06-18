@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Target, Rocket, Brain, Code2, Calendar } from "lucide-react";
+// Imported data structure to accurately parse total project count
+import { projectsData } from "@/data/project-data";
 
 export default function AboutSection() {
     const [hasIntersected, setHasIntersected] = useState(false);
@@ -29,21 +31,22 @@ export default function AboutSection() {
         <section
             id="about"
             ref={sectionRef}
-            className="relative w-full max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 overflow-hidden"
+            className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 md:py-20 lg:py-24 overflow-hidden"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-start relative z-10">
+            {/* Multi-Viewport Grid Layout: Fluid transformations across mobile, tablet, laptop, and desktop viewports */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 items-start relative z-10">
 
-                {/* ── COLUMN 1 (LEFT): IDENTITY & BASELINE STATUS ── */}
+                {/* ── COLUMN 1: IDENTITY & QUICK METRICS ── */}
                 <div
-                    className={`lg:col-span-3 flex flex-col space-y-6 z-20 transition-all duration-1000 ${
+                    className={`col-span-1 sm:col-span-2 lg:col-span-3 flex flex-col space-y-4 sm:space-y-6 z-20 transition-all duration-1000 ${
                         hasIntersected ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                     }`}
                 >
-                    <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C9FF] to-[#92FE9D]" />
+                    <div className="w-16 h-0.75 bg-linear-to-r from-[#00C9FF] to-[#92FE9D]" />
 
-                    {/* Identity Block gamit ang Centralized Tokens */}
-                    <div className="bg-card backdrop-blur-md rounded-2xl border border-card-border p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.15)] flex items-center gap-3.5 theme-transition hover:border-text-dim/50">
-                        <div className="w-12 h-12 rounded-xl border border-card-border/40 flex items-center justify-center bg-card-inner text-[#00C9FF] shadow-sm flex-shrink-0 theme-transition">
+                    {/* Identity Glassmorphic Card */}
+                    <div className="bg-card backdrop-blur-md rounded-2xl border border-card-border p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.15)] flex items-center gap-4 theme-transition hover:border-text-dim/50">
+                        <div className="w-12 h-12 rounded-xl border border-card-border/40 flex items-center justify-center bg-card-inner text-[#00C9FF] shadow-sm shrink-0 theme-transition">
                             <Brain className="w-5 h-5 stroke-[1.5]" />
                         </div>
                         <div className="flex flex-col min-w-0">
@@ -51,25 +54,27 @@ export default function AboutSection() {
                                 kian.fontillas
                             </span>
                             <span className="text-[11px] font-medium text-text-muted truncate theme-transition">
-                                Full Stack & Automation
+                                Full Stack Developer
                             </span>
                         </div>
                     </div>
 
-                    {/* Quick Metrics */}
-                    <div className="space-y-3">
-                        {/* Projects Built Card */}
+                    {/* Dynamic Metrics Row: Organizes as a balanced side-by-side row on tablets, stacks gracefully on desktop/mobile */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 lg:space-y-3">
+                        {/* Projects Built Dynamic Card */}
                         <div className="bg-card backdrop-blur-md border border-card-border rounded-xl p-4 flex items-center gap-4 group hover:border-[#00C9FF]/40 theme-transition shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
                             <div className="p-2 rounded-lg border border-card-border/40 bg-card-inner text-text-muted group-hover:text-[#00C9FF] theme-transition shadow-sm">
                                 <Code2 className="w-4 h-4 stroke-[1.75]" />
                             </div>
                             <div>
-                                <div className="text-xl font-black text-text-main tracking-tight theme-transition">20+</div>
+                                <div className="text-xl font-black text-text-main tracking-tight theme-transition">
+                                    {projectsData ? `${projectsData.length}` : "20+"}
+                                </div>
                                 <div className="text-[10px] font-bold tracking-wide uppercase text-text-dim theme-transition">Projects Built</div>
                             </div>
                         </div>
 
-                        {/* Fresh Graduate Card */}
+                        {/* Professional Status Card */}
                         <div className="bg-card backdrop-blur-md border border-card-border rounded-xl p-4 flex items-center gap-4 group hover:border-[#92FE9D]/50 theme-transition shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
                             <div className="p-2 rounded-lg border border-card-border/40 bg-card-inner text-text-muted group-hover:text-[#92FE9D] theme-transition shadow-sm">
                                 <Calendar className="w-4 h-4 stroke-[1.75]" />
@@ -82,71 +87,71 @@ export default function AboutSection() {
                     </div>
                 </div>
 
-                {/* ── COLUMN 2 (CENTER): MAIN TYPOGRAPHY & STORY BODY ── */}
+                {/* ── COLUMN 2: PRIMARY BIOGRAPHY STORY ── */}
                 <div
-                    className={`lg:col-span-6 flex flex-col space-y-6 z-10 lg:px-4 transition-all duration-1000 delay-150 ${
+                    className={`col-span-1 sm:col-span-2 lg:col-span-6 flex flex-col space-y-4 sm:space-y-6 z-10 lg:px-4 transition-all duration-1000 delay-150 ${
                         hasIntersected ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                     }`}
                 >
                     <div className="space-y-1">
-                        <h4 className="text-[11px] font-bold uppercase tracking-widest text-text-dim theme-transition">
+                        <h4 className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-text-dim theme-transition">
                             ABOUT THE DEVELOPER
                         </h4>
-                        <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-text-main leading-tight theme-transition">
-                            Designing logic.<br />
-                            <span className="bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">
-                                Engineering aesthetics.
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-text-main leading-tight theme-transition">
+                            Building clean logic.<br />
+                            <span className="bg-linear-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">
+                                Engineering standard experiences.
                             </span>
                         </h2>
                     </div>
 
-                    <div className="space-y-4 text-sm leading-relaxed text-text-muted font-normal theme-transition">
+                    {/* Simplified, crisp, and high-impact English descriptive blocks */}
+                    <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-text-muted font-normal theme-transition">
                         <p>
-                            As a fresh graduate from{" "}
+                            I am a fresh graduate from{" "}
                             <span className="font-semibold text-text-main theme-transition">
                                 President Ramon Magsaysay State University (PRMSU)
                             </span>
-                            , I am driven by the intersection of complex architectural logic and human-centric UI systems.
-                            My core philosophy is straightforward: powerful technology shouldn't feel over-engineered or complicated to the end user.
+                            . I love building smart systems and clean user interfaces. My goal is simple: make software powerful on the inside but very easy to use for everyone.
                         </p>
                         <p>
-                            During my time as a <span className="font-semibold text-text-main theme-transition">Frontend Developer Intern</span>, I focused on building practical, high-impact systems, notably contributing to the <span className="text-text-main font-medium theme-transition">AutomatingProposalDocsProcess</span> pipeline. This system streamlined Paperless Proposals by engineering seamless workflows for document Review, Revision, and lifecycle management.
+                            During my time as a <span className="font-semibold text-text-main theme-transition">Frontend Developer Intern</span>, I focused on creating practical digital solutions. I helped automate document processing workflows, making it fast and efficient to review, revise, and manage digital paperless files.
                         </p>
                         <p>
-                            Whether I am developing our research and capstone project—a deep learning-powered <span className="text-text-main font-medium theme-transition">Face Recognition Attendance Monitoring System</span>—or wireframing responsive client portals, my focus stays anchored on crisp execution. I build digital experiences that remain structurally scalable on the backend while staying visually premium on the frontend—favoring modern, minimalist design, glassmorphic finishes, and clean codebases.
+                            Whether developing a deep learning-powered <span className="text-text-main font-medium theme-transition">Face Recognition Attendance System</span> for my thesis or designing responsive client portals, my priority is quality. I ensure that backend architectures remain solid while frontend visuals stay clean, elegant, and minimalist.
                         </p>
                     </div>
                 </div>
 
-                {/* ── COLUMN 3 (RIGHT): ASYMMETRIC VALUES BLOCKS ── */}
+                {/* ── COLUMN 3: STRATEGIC VALUES BLOCKS ── */}
                 <div
-                    className={`lg:col-span-3 flex flex-col space-y-6 z-20 lg:pl-4 transition-all duration-1000 delay-300 ${
+                    className={`col-span-1 sm:col-span-2 lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6 lg:gap-0 lg:space-y-6 z-20 lg:pl-4 transition-all duration-1000 delay-300 ${
                         hasIntersected ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                     }`}
                 >
                     {/* Value Block 1: Purpose */}
-                    <div className="space-y-2 border-b border-card-border/60 pb-4 theme-transition group">
+                    <div className="space-y-2 border-b border-card-border/60 pb-4 sm:border-b-0 lg:border-b theme-transition group">
                         <div className="flex items-center gap-2">
                             <Target className="w-3.5 h-3.5 text-[#00C9FF] transition-transform duration-300 group-hover:scale-110" />
-                            <h4 className="text-[11px] font-bold tracking-widest text-text-dim uppercase theme-transition">
+                            <h4 className="text-[10px] sm:text-[11px] font-bold tracking-widest text-text-dim uppercase theme-transition">
                                 Purpose
                             </h4>
                         </div>
                         <p className="text-xs text-text-muted leading-relaxed font-normal theme-transition group-hover:text-text-main">
-                            Bridging complex systemic logic with seamless, user-first visual interfaces.
+                            Connecting advanced backend systems with simple, beautiful layouts.
                         </p>
                     </div>
 
                     {/* Value Block 2: Drive */}
-                    <div className="space-y-2 border-b border-card-border/60 pb-4 theme-transition group">
+                    <div className="space-y-2 border-b border-card-border/60 pb-4 sm:border-b-0 lg:border-b theme-transition group">
                         <div className="flex items-center gap-2">
                             <Rocket className="w-3.5 h-3.5 text-[#92FE9D] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5" />
-                            <h4 className="text-[11px] font-bold tracking-widest text-text-dim uppercase theme-transition">
+                            <h4 className="text-[10px] sm:text-[11px] font-bold tracking-widest text-text-dim uppercase theme-transition">
                                 Drive
                             </h4>
                         </div>
                         <p className="text-xs text-text-muted leading-relaxed font-normal theme-transition group-hover:text-text-main">
-                            Obsessed with code layout integrity, clean architecture, and fluid performance.
+                            Focused on clear architecture, optimized code, and smooth performance.
                         </p>
                     </div>
 
@@ -154,12 +159,12 @@ export default function AboutSection() {
                     <div className="space-y-2 pb-4 group">
                         <div className="flex items-center gap-2">
                             <Brain className="w-3.5 h-3.5 text-[#00C9FF] transition-transform duration-300 group-hover:scale-110" />
-                            <h4 className="text-[11px] font-bold tracking-widest text-text-dim uppercase theme-transition">
+                            <h4 className="text-[10px] sm:text-[11px] font-bold tracking-widest text-text-dim uppercase theme-transition">
                                 Mindset
                             </h4>
                         </div>
                         <p className="text-xs text-text-muted leading-relaxed font-normal theme-transition group-hover:text-text-main">
-                            Continuous engineering optimization—making powerful tech feel completely effortless.
+                            Always learning and improving to make powerful technology feel completely effortless.
                         </p>
                     </div>
                 </div>
