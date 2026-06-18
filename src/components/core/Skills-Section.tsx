@@ -75,14 +75,14 @@ export default function SkillsSection() {
                     }`}
                 >
                     <div className="lg:col-span-7 space-y-3">
-                        <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C9FF] to-[#92FE9D]" />
+                        <div className="w-16 h-0.75 bg-linear-to-r from-[#00C9FF] to-[#92FE9D]" />
                         <div className="space-y-1">
                             <span className="text-[11px] font-bold uppercase tracking-widest text-text-dim theme-transition">
                                 MY TOOLS & SKILLS
                             </span>
                             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-text-main leading-tight theme-transition">
                                 What I use to build. <br />
-                                <span className="bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">
+                                <span className="bg-linear-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">
                                     Crafted with powerful technology.
                                 </span>
                             </h2>

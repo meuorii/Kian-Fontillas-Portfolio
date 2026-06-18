@@ -49,8 +49,8 @@ export default function GoalsSection() {
         >
             {/* Fine Technical Grid Accent Lines matching Interests layout setup */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.04] select-none">
-                <div className="absolute top-0 left-1/3 bottom-0 w-[1px] border-l border-dashed border-[#00C9FF]" />
-                <div className="absolute top-0 left-2/3 bottom-0 w-[1px] border-l border-dashed border-[#92FE9D]" />
+                <div className="absolute top-0 left-1/3 bottom-0 w-px border-l border-dashed border-[#00C9FF]" />
+                <div className="absolute top-0 left-2/3 bottom-0 w-px border-l border-dashed border-[#92FE9D]" />
             </div>
 
             <div className="relative z-10 space-y-16 md:space-y-24">
@@ -62,14 +62,14 @@ export default function GoalsSection() {
                     }`}
                 >
                     <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00C9FF] to-[#92FE9D]" />
+                        <span className="w-2 h-2 rounded-full bg-linear-to-r from-[#00C9FF] to-[#92FE9D]" />
                         <span className="text-[11px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                             Future Outlook
                         </span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
                         Objectives & Aspirations
-                        <span className="bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">.</span>
+                        <span className="bg-linear-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">.</span>
                     </h2>
                     <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
                         A clean look at what I am currently working toward, both in terms of technical craft and local community impact.
@@ -101,12 +101,12 @@ export default function GoalsSection() {
                                 }}
                             >
                                 {/* Ambient Glass Aura inside card */}
-                                <div className="absolute inset-0 rounded-2xl transition-opacity duration-700 pointer-events-none opacity-0 group-hover:opacity-100 bg-gradient-to-br from-[#00C9FF]/[0.02] to-[#92FE9D]/[0.02]" />
+                                <div className="absolute inset-0 rounded-2xl transition-opacity duration-700 pointer-events-none opacity-0 group-hover:opacity-100 bg-linear-to-br from-[#00C9FF]/2 to-[#92FE9D]/2" />
 
                                 {/* Left Accent Active Bar */}
                                 <div 
-                                    className={`absolute left-0 top-1/2 -translate-y-1/2 w-[3px] rounded-r-full transition-all duration-500 ${
-                                        isHovered ? "h-12 bg-gradient-to-b from-[#00C9FF] to-[#92FE9D]" : "h-0 bg-transparent"
+                                    className={`absolute left-0 top-1/2 -translate-y-1/2 w-0.75 rounded-r-full transition-all duration-500 ${
+                                        isHovered ? "h-12 bg-linear-to-b from-[#00C9FF] to-[#92FE9D]" : "h-0 bg-transparent"
                                     }`}
                                 />
 
@@ -146,7 +146,7 @@ export default function GoalsSection() {
                                 <div className="hidden md:col-span-3 md:flex items-center justify-end relative z-10">
                                     <span className={`text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full border transition-all duration-500 ${
                                         isHovered 
-                                            ? "border-[#00C9FF]/30 text-[#00C9FF] bg-[#00C9FF]/[0.04]" 
+                                            ? "border-[#00C9FF]/30 text-[#00C9FF] bg-[#00C9FF]/4" 
                                             : "border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500"
                                     }`}>
                                         {goal.category}

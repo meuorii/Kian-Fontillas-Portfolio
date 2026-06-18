@@ -23,7 +23,7 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative w-full min-h-screen text-foreground bg-background flex items-center overflow-hidden pt-24 pb-16 md:pt-28 md:pb-20 lg:py-0 theme-transition">
+        <section className="relative w-full h-auto lg:min-h-screen text-foreground bg-background flex items-start lg:items-center overflow-hidden pt-28 pb-16 md:pt-36 lg:py-0 theme-transition">
 
             {/* ── AMBIENT BACKDROP (Shared) ── */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-70 h-70 sm:w-112.5 sm:h-112.5 md:w-150 md:h-150 pointer-events-none z-0 opacity-25 dark:opacity-35 transition-opacity duration-300">
