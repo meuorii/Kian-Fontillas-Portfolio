@@ -106,7 +106,7 @@ export const projectsData: ProjectType[] = [
         technologies: ["React Native", "Django", "MongoDB", "TypeScript", "Python"],
         slugs: "react,django,mongodb,ts,py",
         links: {
-            github: "https://github.com/yourusername/scentsync", // Pwede mong palitan ng tamang repo link
+            github: "https://github.com/meuorii/AI-Based-Fragrance-Recommendation-System-Using-Scent-Chemistry-and-Weather-Context", // Pwede mong palitan ng tamang repo link
             live: ""
         },
         featured: true,

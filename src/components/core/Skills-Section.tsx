@@ -27,33 +27,33 @@ export default function SkillsSection() {
 
     const skillCategories = [
         {
-            title: "Frontend Development",
+            title: "What Users See",
             icon: <Code2 className="w-5 h-5 text-[#00C9FF]" />,
-            description: "Engineering fluid, interactive, and responsive user interfaces with type safety.",
+            description: "Making smooth, clean, and beautiful web pages and mobile apps that fit perfectly on any screen.",
             technologies: ["React", "React Native", "TypeScript", "Tailwind CSS", "Next.js", "JavaScript"],
-            slugs: "react,nextjs,tailwind,ts,js",
+            slugs: "react,nextjs,tailwind,ts,js", // Fixed this back to slugs!
             gridClass: "lg:col-span-7",
         },
         {
-            title: "Backend Architecture",
+            title: "Behind the Scenes",
             icon: <Terminal className="w-5 h-5 text-[#92FE9D]" />,
-            description: "Building robust backend services, routing engines, and automation pipelines.",
+            description: "Creating the main systems and data rules that make the app run safely and fast.",
             technologies: ["Express.js", "Django", "Flask"],
             slugs: "express,django,flask,nodejs,python",
             gridClass: "lg:col-span-5",
         },
         {
-            title: "Database Systems",
+            title: "Storing Data",
             icon: <Database className="w-5 h-5 text-[#00C9FF]" />,
-            description: "Designing relational structures, flexible document schemas, and cloud instances.",
+            description: "Setting up clean digital filing systems to save, protect, and organize information.",
             technologies: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Supabase"],
             slugs: "mongodb,mysql,postgres,firebase,supabase",
             gridClass: "lg:col-span-5",
         },
         {
-            title: "Tools & Machine Learning",
+            title: "Smart Tools & AI",
             icon: <Cpu className="w-5 h-5 text-[#92FE9D]" />,
-            description: "Managing version control, workspace environments, and training frameworks.",
+            description: "Using helper tools to track code history, manage projects, and teach smart AI models.",
             technologies: ["Git", "Postman", "Docker", "Redis", "PyTorch"],
             slugs: "git,postman,docker,redis,pytorch",
             gridClass: "lg:col-span-7",
@@ -78,12 +78,12 @@ export default function SkillsSection() {
                         <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C9FF] to-[#92FE9D]" />
                         <div className="space-y-1">
                             <span className="text-[11px] font-bold uppercase tracking-widest text-text-dim theme-transition">
-                                TECHNICAL STACK
+                                MY TOOLS & SKILLS
                             </span>
                             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-text-main leading-tight theme-transition">
-                                Tools of the trade. <br />
+                                What I use to build. <br />
                                 <span className="bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent">
-                                    Powered by modern infrastructure.
+                                    Crafted with powerful technology.
                                 </span>
                             </h2>
                         </div>
@@ -91,12 +91,12 @@ export default function SkillsSection() {
 
                     <div className="lg:col-span-5 lg:pl-6 pb-1 space-y-4">
                         <p className="text-sm text-text-muted leading-relaxed font-normal border-l-2 border-card-border pl-4 theme-transition">
-                            A curated selection of languages, architectural frameworks, and machine learning tools leveraged to map algorithmic logic into sleek, high-end interfaces.
+                            A chosen list of computer languages, code frameworks, and smart tools that I use to turn ideas into clean, fast, and easy-to-use apps.
                         </p>
                         <div className="flex items-start gap-2 pl-4 text-[11px] font-mono text-text-dim theme-transition">
                             <span className="text-[#00C9FF] font-bold">//</span>
                             <p className="leading-normal">
-                                Always evolving. Highly adaptable and <span className="text-text-muted font-semibold">actively driven to learn and explore</span> alternative frameworks, languages, and emerging tools to solve arbitrary system challenges.
+                                Always improving. Ready to adapt and <span className="text-text-muted font-semibold">excited to learn new things</span>, try new tools, and find the best answers to tricky problems.
                             </p>
                         </div>
                     </div>
@@ -144,19 +144,18 @@ export default function SkillsSection() {
                             {/* Bottom Identity Shelf */}
                             <div className="mt-8 pt-4 border-t border-card-border/60 flex items-center justify-between theme-transition">
                                 <span className="text-[10px] font-mono tracking-widest text-text-dim uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 theme-transition">
-                                    // verified_stack
+                                    // tools_used
                                 </span>
                                 <div className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                                    {/* skillicons.dev theme toggling remains controlled cleanly via native CSS hidden/dark layers */}
                                     <img
                                         src={`https://skillicons.dev/icons?i=${category.slugs}&theme=light`}
-                                        alt={`${category.title} badges`}
+                                        alt={`${category.title} icons`}
                                         loading="lazy"
                                         className="h-8 object-contain max-w-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.01)] dark:hidden"
                                     />
                                     <img
                                         src={`https://skillicons.dev/icons?i=${category.slugs}&theme=dark`}
-                                        alt={`${category.title} badges`}
+                                        alt={`${category.title} icons`}
                                         loading="lazy"
                                         className="h-8 object-contain max-w-full hidden dark:inline-block"
                                     />
