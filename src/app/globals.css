@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+/* ── TAILWIND V4 INTEGRATION ── */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* Layout Surfaces Tokens */
+  --color-card: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-inner: var(--card-inner-bg);
+  
+  /* Typography Hierarchy Tokens */
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  /* Editorial Typography Headers */
+  .text-works-title {
+    @apply text-zinc-900 dark:text-zinc-50;
+  }
+  .text-works-heading {
+    @apply text-zinc-900 dark:text-zinc-100;
+  }
+  .text-works-description {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+  .text-works-link {
+    @apply text-zinc-900 dark:text-zinc-200;
+  }
+
+  /* Structural Container & Borders */
+  .works-card {
+    @apply bg-white dark:bg-zinc-800/40 backdrop-blur-md 
+           border border-zinc-200 dark:border-zinc-700/60
+           shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.2)]
+           hover:border-zinc-300 dark:hover:border-zinc-600/80
+           hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] dark:hover:shadow-[0_32px_64px_rgba(0,0,0,0.25)];
+  }
+
+  .works-canvas-border {
+    @apply border border-zinc-200/50 dark:border-zinc-700/50
+           group-hover:border-zinc-300 dark:group-hover:border-zinc-600;
+  }
+
+  .works-divider {
+    @apply border-zinc-200/55 dark:border-zinc-700/55;
+  }
+
+  /* Mockup Visual Customizer */
+  .works-mockup-bg {
+    @apply bg-white/90 dark:bg-zinc-900/90;
+  }
+  .works-mockup-border {
+    @apply border-zinc-100 dark:border-zinc-800;
+  }
+  .works-mockup-dot {
+    @apply bg-zinc-200 dark:bg-zinc-700;
+  }
+  .bg-canvas-fill {
+    @apply bg-white dark:bg-zinc-900;
+  }
+
+  /* Component UI Element Controls */
+  .ring-avatar-edge {
+    @apply ring-white dark:ring-zinc-800;
+  }
+  .bg-solo-badge {
+    @apply bg-zinc-100 dark:bg-zinc-800;
+  }
+  .bg-works-dot-inactive {
+    @apply bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-500;
+  }
+  .works-control-btn {
+    @apply border-zinc-200 dark:border-zinc-700 
+           bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md 
+           hover:border-zinc-300 dark:hover:border-zinc-600 
+           shadow-[0_4px_12px_rgba(0,0,0,0.02)];
   }
 }
 
+/* ── TAILWIND V4 NATIVE DARK VARIANT OVERRIDE ── */
+@variant dark (&:where(.dark, .dark *));
+
+/* ── LIGHT MODE DEFAULTS ── */
+:root {
+  --background: #FCFCFC;
+  --foreground: #171717;
+  
+  /* Surfaces */
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: var(--color-zinc-200);
+  --card-inner-bg: var(--color-zinc-50);
+  
+  /* Typography States */
+  --text-main: var(--color-zinc-900);    /* #18181b */
+  --text-muted: var(--color-zinc-600);   /* #52525b */
+  --text-dim: var(--color-zinc-400);     /* #a1a1aa */
+}
+
+/* ── CLASS-BASED DARK MODE OVERRIDE ── */
+.dark {
+  --background: #09090b; 
+  --foreground: #ededed;
+  
+  /* Surfaces */
+  --card-bg: rgba(39, 39, 42, 0.4); 
+  --card-border: rgba(63, 63, 70, 0.6); 
+  --card-inner-bg: var(--color-zinc-900);
+  
+  /* Typography States */
+  --text-main: var(--color-zinc-100);    /* #f4f4f5 */
+  --text-muted: var(--color-zinc-400);   /* #a1a1aa */
+  --text-dim: var(--color-zinc-500);     /* #71717a */
+}
+
+/* Global Smooth Scrolling */
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 80px;
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
+}
+
+/* ── THEME TRANSITION UTILITY ── */
+.theme-transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
 }

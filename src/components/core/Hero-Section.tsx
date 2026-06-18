@@ -12,97 +12,110 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative w-full min-h-screen bg-zinc-50 text-zinc-900 flex items-center overflow-hidden pt-24 pb-12 lg:py-0">
+        <section className="relative w-full min-h-screen text-foreground bg-background flex items-center overflow-hidden pt-20 pb-16 md:pt-28 md:pb-20 lg:py-0 theme-transition">
 
-            {/* ── LIGHT AMBIENT BACKDROP ── */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] pointer-events-none z-0 opacity-60">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00C9FF]/20 to-[#92FE9D]/20 blur-[80px] animate-pulse duration-[6000ms]" />
-                <div className="absolute inset-[-10%] border border-zinc-200/60 rounded-full border-dashed animate-[spin_140s_linear_infinite]" />
+            {/* ── AMBIENT BACKDROP ── */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px] pointer-events-none z-0 opacity-25 dark:opacity-35 transition-opacity duration-300">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00C9FF]/10 to-[#92FE9D]/10 blur-[60px] sm:blur-[90px] animate-pulse duration-[6000ms]" />
+                <div className="absolute inset-[-10%] border border-foreground/10 rounded-full border-dashed animate-[spin_160s_linear_infinite]" />
             </div>
 
-            {/* ── STRUCTURED ASYMMETRIC GRID MAPPED FROM 831c5174a05e38429c231ae18f79b531_2.jpg ── */}
-            <div className={`mx-auto max-w-7xl w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-end relative z-10 h-full transition-all duration-1000 cubic-bezier(0.16,1,0.3,1) transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            {/* ── STRUCTURED ASYMMETRIC GRID ── */}
+            <div className={`mx-auto max-w-7xl w-full px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-6 items-center lg:items-end relative z-10 h-full transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
 
                 {/* ── LEFT COLUMN: TYPOGRAPHY, BIO & CTA TRIGGERS ── */}
-                <div className="lg:col-span-4 flex flex-col justify-center h-full pb-0 lg:pb-20 pt-8 lg:pt-0 space-y-6 z-20 order-1">
-                    {/* Minimalist Accent Line Rule */}
-                    <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C9FF] to-[#92FE9D]" />
+                {/* Laging una sa mobile at nasa kaliwa sa desktop */}
+                <div className="col-span-1 lg:col-span-4 flex flex-col justify-center h-full pb-0 lg:pb-20 pt-4 md:pt-8 lg:pt-0 space-y-5 sm:space-y-6 z-20 order-1">
+                    <div className="w-14 h-[3px] sm:w-16 bg-gradient-to-r from-[#00C9FF] to-[#92FE9D]" />
 
-                    <div className="space-y-4">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-zinc-900">
-                            Hi, <br />
-                            I'm <span className="bg-gradient-to-r from-[#00C9FF] via-[#00C9FF] to-[#92FE9D] bg-clip-text text-transparent relative">Kian J. Fontillas</span>
+                    <div className="space-y-3 sm:space-y-4">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-foreground">
+                            Hi, <br className="hidden sm:inline" />
+                            I'm <span className="bg-gradient-to-r from-[#00C9FF] via-[#00B8E8] to-[#92FE9D] bg-clip-text text-transparent">Kian J. Fontillas</span>
                         </h1>
-                        <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed max-w-sm font-normal">
+                        <p className="text-foreground/75 text-xs sm:text-sm leading-relaxed max-w-md lg:max-w-sm font-normal transition-colors duration-300">
                             I am an aspiring Full Stack Software Web Developer and AI Enthusiast, deeply committed to continuous growth and learning within the industry. I excel at bridging the gap between heavy algorithmic backends and sleek, fluid user interfaces—building web applications while training models and occasionally making fun of AI hallucinations along the way.
                         </p>
                     </div>
 
-                    {/* Layout Scroll Trigger Anchor */}
-                    <div className="pt-2 flex items-center gap-4">
+                    <div className="pt-1 flex items-center gap-4">
                         <a
                             href="#work"
-                            className="group flex items-center justify-center w-14 h-14 rounded-full bg-zinc-900 text-white transition-all duration-300 hover:bg-[#00C9FF] hover:text-zinc-950 hover:scale-110 hover:shadow-[0_10px_25px_rgba(0,201,255,0.3)]"
+                            className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-foreground text-background transition-all duration-300 hover:bg-[#00C9FF] hover:text-zinc-950 hover:scale-110 hover:shadow-[0_10px_25px_rgba(0,201,255,0.3)]"
                         >
-                            <ArrowDown className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-y-0.5" />
+                            <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-y-0.5" />
                         </a>
-                        <span className="text-xs font-bold tracking-widest text-zinc-400 uppercase select-none hidden sm:inline">Scroll To Projects</span>
+                        <span className="text-[10px] sm:text-xs font-bold tracking-widest text-foreground/50 uppercase select-none transition-colors">
+                            Scroll To Projects
+                        </span>
                     </div>
                 </div>
 
                 {/* ── CENTER COLUMN: GIANT FRAMELESS PORTRAIT CUTOUT ── */}
-                <div className="lg:col-span-5 flex justify-center items-end h-[380px] sm:h-[480px] lg:h-[85vh] relative z-10 order-3 lg:order-2 select-none">
-                    <div className="relative w-full h-full max-w-md lg:max-w-none flex items-end justify-center">
-                        {/* Soft portrait baseline cast glow shadow */}
-                        <div className="absolute bottom-4 left-10 right-10 h-[12px] bg-zinc-900/10 blur-xl rounded-full" />
+                <div className="col-span-1 md:col-span-2 lg:col-span-5 flex justify-center items-end h-[300px] sm:h-[380px] md:h-[460px] lg:h-[80vh] xl:h-[85vh] relative z-10 order-2 lg:order-2 select-none my-6 lg:my-0">
+                    <div className="relative w-full h-full max-w-[240px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-none flex items-end justify-center">
+                        <div className="absolute bottom-2 left-6 right-6 h-[10px] bg-foreground/10 blur-xl rounded-full transition-colors" />
+                        
+                        {/* LIGHT MODE IMAGE (Nakatago kapag dark mode) */}
                         <Image
                             src="/profile(1).png"
-                            alt="Kian J. Fontillas Cutout Portrait"
+                            alt="Kian J. Fontillas Cutout Portrait (Light Mode)"
                             width={540}
                             height={720}
                             priority
-                            className="object-contain object-bottom w-auto h-full max-h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)] filter saturate-[1.01] transition-all duration-500 hover:scale-[1.01]"
+                            className="dark:hidden object-contain object-bottom w-auto h-full max-h-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.06)] filter saturate-[1.01] transition-all duration-500 hover:scale-[1.01]"
+                        />
+
+                        {/* DARK MODE IMAGE (Nakatago kapag light mode, ipapakita kapag dark mode) */}
+                        <Image
+                            src="/profile_dark.png" 
+                            alt="Kian J. Fontillas Cutout Portrait (Dark Mode)"
+                            width={540}
+                            height={720}
+                            priority
+                            className="hidden dark:block object-contain object-bottom w-auto h-full max-h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] filter saturate-[1.01] transition-all duration-500 hover:scale-[1.01]"
                         />
                     </div>
                 </div>
 
                 {/* ── RIGHT COLUMN: ASYMMETRIC METADATA BLOCKS & SOCIAL ROW ── */}
-                <div className="lg:col-span-3 flex flex-col justify-center h-full pb-12 lg:pb-20 space-y-8 z-20 order-2 lg:order-3 lg:pl-6 text-left">
+                {/* INAYOS: Ginawang `order-3` para ito ang maging pinakahuli sa mobile/tablet viewports */}
+                <div className="col-span-1 lg:col-span-3 flex flex-col justify-center h-full pb-4 lg:pb-20 space-y-6 sm:space-y-8 z-20 order-3 lg:order-3 lg:pl-4 text-left">
 
                     {/* Action Block 1: Explore Work */}
-                    <div className="space-y-2.5 border-b border-zinc-200 pb-5">
-                        <h4 className="text-[11px] font-bold tracking-widest text-zinc-400 uppercase">
+                    <div className="space-y-2 border-b border-foreground/15 pb-4 sm:pb-5 transition-colors duration-300">
+                        <h4 className="text-[10px] sm:text-[11px] font-bold tracking-widest text-foreground/50 uppercase">
                             Portfolio Navigation
                         </h4>
-                        <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+                        <p className="text-[11px] sm:text-xs text-foreground/75 leading-relaxed font-normal transition-colors max-w-md lg:max-w-none">
                             Review custom interactive layout setups, lightweight web platforms, and optimized algorithmic backend schemas.
                         </p>
-                        <a href="#work" className="inline-flex items-center gap-1 text-[11px] font-bold tracking-wide text-zinc-900 hover:text-[#00C9FF] transition-colors group">
+                        <a href="#work" className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold tracking-wide text-foreground hover:text-[#00C9FF] dark:hover:text-[#00C9FF] transition-colors group pt-0.5">
                             EXPLORE MY WORK
                             <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </a>
                     </div>
 
-                    {/* Action Block 2: Download CV Document */}
-                    <div className="space-y-2.5 border-b border-zinc-200 pb-5">
-                        <h4 className="text-[11px] font-bold tracking-widest text-zinc-400 uppercase">
+                    {/* Action Block 2: Download CV */}
+                    <div className="space-y-2 border-b border-foreground/15 pb-4 sm:pb-5 transition-colors duration-300">
+                        <h4 className="text-[10px] sm:text-[11px] font-bold tracking-widest text-foreground/50 uppercase">
                             Credentials
                         </h4>
-                        <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+                        <p className="text-[11px] sm:text-xs text-foreground/75 leading-relaxed font-normal transition-colors max-w-md lg:max-w-none">
                             Access complete professional history, framework specializations, and deep learning engineering metrics.
                         </p>
-                        <a href="/cv.pdf" download className="inline-flex items-center gap-1 text-[11px] font-bold tracking-wide text-zinc-900 hover:text-[#00C9FF] transition-colors group">
+                        <a href="/cv.pdf" download className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold tracking-wide text-foreground hover:text-[#00C9FF] dark:hover:text-[#00C9FF] transition-colors group pt-0.5">
                             DOWNLOAD CV
                             <Download className="w-3 h-3 transition-transform duration-300 group-hover:translate-y-0.5" />
                         </a>
                     </div>
 
-                    {/* Action Block 3: Raw SVG Network Vectors */}
-                    <div className="space-y-3">
-                        <h4 className="text-[11px] font-bold tracking-widest text-zinc-400 uppercase">
+                    {/* Action Block 3: Social Row */}
+                    <div className="space-y-2 sm:space-y-3">
+                        <h4 className="text-[10px] sm:text-[11px] font-bold tracking-widest text-foreground/50 uppercase">
                             Follow Me
                         </h4>
-                        <div className="flex items-center gap-5 text-zinc-400">
+                        <div className="flex items-center gap-4 sm:gap-5 text-foreground/60">
                             {[
                                 {
                                     label: "GitHub",
@@ -126,27 +139,25 @@ export default function HeroSection() {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label={social.label}
-                                    className="text-zinc-400 transition-all duration-300 hover:text-zinc-900 hover:-translate-y-0.5"
+                                    className="transition-all duration-300 hover:text-foreground hover:-translate-y-0.5"
                                 >
-                                    <svg className="w-4 h-4 fill-currentColor transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                    <svg className="w-4 h-4 fill-current transition-transform duration-300" viewBox="0 0 24 24">
                                         {social.svg}
                                     </svg>
                                 </a>
                             ))}
-                            {/* Linear Line-Stroked Email SVG Layout */}
                             <a
                                 href="mailto:your-email@example.com"
                                 aria-label="Email"
-                                className="text-zinc-400 transition-all duration-300 hover:text-zinc-900 hover:-translate-y-0.5"
+                                className="transition-all duration-300 hover:text-foreground hover:-translate-y-0.5"
                             >
-                                <svg className="w-4 h-4 fill-none stroke-current stroke-[2] transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                                <svg className="w-4 h-4 fill-none stroke-current stroke-[2] transition-transform duration-300" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                                     <rect width="20" height="16" x="2" y="4" rx="2" />
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                                 </svg>
                             </a>
                         </div>
                     </div>
-
                 </div>
 
             </div>
