@@ -9,6 +9,7 @@ import WorksSection from "@/components/core/Works-Section";
 import InterestsSection from "@/components/core/Interests-Section";
 import ContactSection from "@/components/core/Contact-Section";
 import { Sun, Moon, X, MessageSquare, Send, Menu } from "lucide-react";
+import { FaGithub } from "react-icons/fa6"; // Premium icon kit import
 
 // ── SUB-COMPONENT WRAPPER TO ACCURATELY CONSUME THEME CONTEXT ──
 function MainLayout() {
@@ -55,12 +56,14 @@ function MainLayout() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans antialiased theme-transition">
+    /* Tinanggal ang overflow-x-hidden dito sa root para gumana ang sticky position ng header */
+    <div className="relative min-h-screen w-full bg-background text-foreground font-sans antialiased theme-transition">
+      
       {/* ── AMBIENT BACKGROUND SYSTEM ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[5%] right-[5%] w-72 h-72 md:w-138 md:h-130 rounded-full bg-[#00C9FF]/[0.03] blur-[80px] md:blur-[120px] theme-transition" />
-        <div className="absolute top-[20%] left-[5%] w-80 h-80 md:w-170 md:h-170 rounded-full bg-[#92FE9D]/[0.02] blur-[90px] md:blur-[140px] theme-transition" />
-        <div className="absolute top-[50%] right-[5%] w-76 h-76 md:w-160 md:h-160 rounded-full bg-[#00C9FF]/[0.02] blur-[80px] md:blur-[130px] theme-transition" />
+        <div className="absolute top-[5%] right-[5%] w-72 h-72 md:w-138 md:h-130 rounded-full bg-[#00C9FF]/3 blur-[80px] md:blur-[120px] theme-transition" />
+        <div className="absolute top-[20%] left-[5%] w-80 h-80 md:w-170 md:h-170 rounded-full bg-[#92FE9D]/2 blur-[90px] md:blur-[140px] theme-transition" />
+        <div className="absolute top-[50%] right-[5%] w-76 h-76 md:w-160 md:h-160 rounded-full bg-[#00C9FF]/2 blur-[80px] md:blur-[130px] theme-transition" />
         
         {/* Technical Layout Wireframe Grid Overlay */}
         <div
@@ -77,47 +80,70 @@ function MainLayout() {
         />
       </div>
 
-      {/* ── NAVBAR (STICKY FOR ALL DEVICES) ── */}
-      <header className="sticky top-0 z-50 w-full border-b border-foreground/15 bg-background/80 backdrop-blur-md shadow-[0_1px_4px_-2px_rgba(0,0,0,0.05)] theme-transition">
-        <div className="mx-auto max-w-7xl flex h-16 md:h-20 items-center justify-between px-4 sm:px-6 md:px-12">
-
-          {/* Logo */}
+     {/* ── NAVBAR (PREMIUM FLOATING CAPSULE DESIGN) ── */}
+    <header className="sticky top-0 z-50 w-full pt-4 px-4 sm:px-6 md:px-8 transition-all duration-300">
+      <div className="mx-auto max-w-7xl">
+        <div className="w-full h-16 flex items-center justify-between px-4 sm:px-6 rounded-2xl border border-zinc-200/50 dark:border-zinc-800/50 bg-[#FCFCFC]/70 dark:bg-zinc-950/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.2)] theme-transition relative overflow-visible">
+          
+          {/* 1. Brand Logo Section with Avatar, Custom Name, and GitHub Subtext */}
           <a
-            href="#"
-            className="group flex items-center font-sans text-lg md:text-xl font-bold tracking-tight text-foreground theme-transition"
+            href="https://github.com/meuorii"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 font-sans theme-transition cursor-pointer"
           >
-            kian.f
-            <span className="text-[#00C9FF] group-hover:translate-x-0.5 transition-transform duration-300">
-              _
-            </span>
+            {/* Avatar Image container with dynamic visual glow on hover */}
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 group-hover:border-[#00C9FF]/50 transition-all duration-300 shadow-xs">
+              <img 
+                src="https://github.com/meuorii.png" 
+                alt="meuorii profile" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-[#00C9FF]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            </div>
+
+            {/* Typography Stack */}
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center text-sm sm:text-base font-bold font-mono tracking-wide text-zinc-900 dark:text-[#FCFCFC] transition-colors group-hover:text-[#00C9FF]">
+                <span>@meuorii</span>
+                <span className="text-[#00C9FF] ml-0.5 animate-pulse font-sans">_</span>
+              </div>
+              <div className="flex items-center gap-1 text-[10px] font-mono font-medium tracking-wider text-zinc-400 dark:text-zinc-500 uppercase transition-colors group-hover:text-zinc-500 dark:group-hover:text-zinc-400">
+                <FaGithub className="w-3 h-3 text-zinc-400 dark:text-zinc-500 group-hover:text-[#00C9FF] transition-colors" />
+                <span>in github</span>
+              </div>
+            </div>
           </a>
 
-          {/* Desktop & Laptop Nav Links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium theme-transition">
+          {/* 2. Desktop & Laptop Nav Links (Minimalist Floating Pills) */}
+          <nav className="hidden md:flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-widest theme-transition">
             {navLinks.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
                 onClick={(e) => handleScroll(e, href)}
-                className="transition-colors duration-200 text-foreground/80 hover:text-foreground relative after:absolute after:bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-[#00C9FF] hover:after:w-full after:transition-all after:duration-300"
+                className="px-4 py-2 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#FCFCFC] hover:bg-zinc-900/5 dark:hover:bg-[#FCFCFC]/5 active:scale-[0.97] transition-all duration-200 relative group"
               >
                 {label}
+                {/* Subtle bottom micro-dot selector on hover */}
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#00C9FF] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </a>
             ))}
           </nav>
 
-          {/* Actions Button Interface */}
-          <div className="flex items-center gap-2 md:gap-4">
-            {/* Theme Toggle */}
+          {/* 3. Actions Button Interface */}
+          <div className="flex items-center gap-2">
+            {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="p-2.5 rounded-xl border border-foreground/20 text-foreground hover:text-[#00C9FF] hover:border-[#00C9FF]/30 hover:bg-foreground/5 theme-transition cursor-pointer flex items-center justify-center"
+              className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:text-[#00C9FF] hover:border-[#00C9FF]/40 dark:hover:border-[#00C9FF]/40 hover:bg-[#00C9FF]/5 theme-transition cursor-pointer flex items-center justify-center transition-all active:scale-95"
             >
               {theme === "light" ? (
-                <Moon className="w-4 h-4 md:w-4.5 md:h-4.5 stroke-2" />
+                <Moon className="w-4 h-4 stroke-[2.5]" />
               ) : (
-                <Sun className="w-4 h-4 md:w-4.5 md:h-4.5 stroke-2" />
+                <Sun className="w-4 h-4 stroke-[2.5]" />
               )}
             </button>
 
@@ -125,37 +151,39 @@ function MainLayout() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle Menu"
-              className="p-2.5 rounded-xl border border-foreground/20 text-foreground hover:text-[#00C9FF] hover:border-[#00C9FF]/30 hover:bg-foreground/5 md:hidden theme-transition cursor-pointer flex items-center justify-center"
+              className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:text-[#00C9FF] hover:border-[#00C9FF]/40 hover:bg-[#00C9FF]/5 md:hidden theme-transition cursor-pointer flex items-center justify-center transition-all active:scale-95"
             >
               {isMobileMenuOpen ? (
-                <X className="w-4 h-4 stroke-2" />
+                <X className="w-4 h-4 stroke-[2.5]" />
               ) : (
-                <Menu className="w-4 h-4 stroke-2" />
+                <Menu className="w-4 h-4 stroke-[2.5]" />
               )}
             </button>
           </div>
 
         </div>
 
-        {/* ── MOBILE & TABLET NAVIGATION TRAY ── */}
+        {/* ── MOBILE & TABLET PREMIUM NAVIGATION DROP-DOWN CONTAINER ── */}
         {isMobileMenuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-background/98 border-b border-foreground/15 px-6 py-6 flex flex-col gap-5 md:hidden animate-in fade-in slide-in-from-top-4 duration-200 z-50 shadow-xl backdrop-blur-lg">
+          <div className="absolute top-22 left-4 right-4 bg-[#FCFCFC]/95 dark:bg-zinc-950/95 border border-zinc-200/80 dark:border-zinc-800/80 px-4 py-4 flex flex-col gap-2 md:hidden rounded-2xl animate-in fade-in slide-in-from-top-4 duration-200 z-50 shadow-xl backdrop-blur-xl">
             {navLinks.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
                 onClick={(e) => handleScroll(e, href)}
-                className="text-base font-medium text-foreground/80 hover:text-foreground py-1 border-b border-foreground/5 transition-colors"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#FCFCFC] px-4 py-3 rounded-xl hover:bg-zinc-900/5 dark:hover:bg-[#FCFCFC]/5 transition-all"
               >
                 {label}
               </a>
             ))}
           </div>
         )}
-      </header>
+      </div>
+    </header>
 
       {/* ── MAIN CONTENT ── */}
-      <main className="relative z-10 flex flex-1 flex-col">
+      {/* Dito inilagay ang overflow-x-hidden para maprotektahan ang screen leaks nang hindi naapektuhan ang fixed/sticky headers */}
+      <main className="relative z-10 flex flex-1 flex-col overflow-x-hidden">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
@@ -172,7 +200,7 @@ function MainLayout() {
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 max-w-[calc(100vw-2rem)]">
 
         {isChatOpen && (
-          <div className="w-full sm:w-90 md:w-95 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-2xl p-4 sm:p-5 flex flex-col gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-200 max-h-[75vh] sm:max-h-[600px]">
+          <div className="w-full sm:w-90 md:w-95 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-2xl p-4 sm:p-5 flex flex-col gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-200 max-h-[75vh] sm:max-h-150">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-3">
               <div>

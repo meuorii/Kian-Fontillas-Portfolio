@@ -47,7 +47,6 @@ export default function ContactSection() {
 
         setIsSubmitting(true);
 
-        // Calculate metadata context parameters dynamically
         const firstLetter = emailForm.email.charAt(0).toUpperCase();
         const currentTime = new Date().toLocaleString("en-US", {
             dateStyle: "medium",
@@ -159,13 +158,16 @@ export default function ContactSection() {
                                     />
                                 </div>
 
+                                {/* Dynamic Hex Palette Send Button */}
                                 <button
                                     type="submit"
                                     disabled={isSubmitting || submitSuccess}
-                                    className="w-full relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-mono text-xs font-black uppercase tracking-wider text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-950 hover:opacity-90 active:scale-[0.99] transition-all shadow-md disabled:opacity-50"
+                                    className="w-full relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-mono text-xs font-black uppercase tracking-wider transition-all shadow-md active:scale-[0.99] disabled:opacity-50
+                                        bg-zinc-950 text-[#FCFCFC] border border-zinc-800 hover:border-[#00C9FF]/50 hover:shadow-[0_0_20px_rgba(0,201,255,0.15)]
+                                        dark:bg-[#FCFCFC] dark:text-zinc-950 dark:hover:bg-[#FCFCFC]/90 dark:hover:shadow-[0_0_25px_rgba(146,254,157,0.25)]"
                                 >
                                     {isSubmitting ? (
-                                        <div className="w-4 h-4 border-2 border-white dark:border-zinc-950 border-t-transparent rounded-full animate-spin" />
+                                        <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                                     ) : submitSuccess ? (
                                         <span className="flex items-center gap-2 text-[#92FE9D] dark:text-emerald-600">
                                             <Check className="w-4 h-4" /> Message Sent Successfully
@@ -173,7 +175,7 @@ export default function ContactSection() {
                                     ) : (
                                         <>
                                             <span>Send Message</span>
-                                            <Send className="w-3.5 h-3.5 ml-1" />
+                                            <Send className="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-0.5" />
                                         </>
                                     )}
                                 </button>
@@ -208,7 +210,7 @@ export default function ContactSection() {
                             </div>
                         </div>
 
-                        {/* Digital Network Footprints */}
+                        {/* Adaptive Connected Footprints (Responsive Color Logos) */}
                         <div className="p-6 rounded-3xl border border-zinc-200/80 dark:border-zinc-800/80 bg-transparent backdrop-blur-xl flex flex-col justify-between h-1/2">
                             <span className="text-[9px] font-mono font-bold text-zinc-400 dark:text-zinc-500 block uppercase tracking-wider">// Connect With Me</span>
                             
@@ -218,9 +220,10 @@ export default function ContactSection() {
                                     href="https://github.com/meuorii"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 dark:border-zinc-800/40 bg-transparent hover:border-[#00C9FF]/40 transition-all group/link"
+                                    className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 dark:border-zinc-800/40 bg-transparent hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group/link"
                                 >
                                     <div className="flex items-center gap-2.5 text-xs font-bold text-zinc-800 dark:text-zinc-300">
+                                        {/* Light Mode: Dark text-zinc-900 | Dark Mode: Light text-zinc-100 */}
                                         <FaGithub className="w-4 h-4 text-zinc-900 dark:text-zinc-100" />
                                         <span>GitHub</span>
                                     </div>
@@ -232,10 +235,11 @@ export default function ContactSection() {
                                     href="https://www.linkedin.com/in/kian-fontillas-30556b396/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 dark:border-zinc-800/40 bg-transparent hover:border-[#00C9FF]/40 transition-all group/link"
+                                    className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 dark:border-zinc-800/40 bg-transparent hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group/link"
                                 >
                                     <div className="flex items-center gap-2.5 text-xs font-bold text-zinc-800 dark:text-zinc-300">
-                                        <FaLinkedinIn className="w-4 h-4 text-[#0077B5]" />
+                                        {/* Light Mode: Dark text-zinc-900 | Dark Mode: Light text-zinc-100 */}
+                                        <FaLinkedinIn className="w-4 h-4 text-zinc-900 dark:text-zinc-100" />
                                         <span>LinkedIn</span>
                                     </div>
                                     <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -246,10 +250,11 @@ export default function ContactSection() {
                                     href="https://www.facebook.com/lveyeon/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 dark:border-zinc-800/40 bg-transparent hover:border-[#92FE9D]/40 transition-all group/link"
+                                    className="flex items-center justify-between p-3 rounded-xl border border-zinc-100 dark:border-zinc-800/40 bg-transparent hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group/link"
                                 >
                                     <div className="flex items-center gap-2.5 text-xs font-bold text-zinc-800 dark:text-zinc-300">
-                                        <FaFacebookF className="w-3.5 h-3.5 text-[#1877F2]" />
+                                        {/* Light Mode: Dark text-zinc-900 | Dark Mode: Light text-zinc-100 */}
+                                        <FaFacebookF className="w-3.5 h-3.5 text-zinc-900 dark:text-zinc-100" />
                                         <span>Facebook</span>
                                     </div>
                                     <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
